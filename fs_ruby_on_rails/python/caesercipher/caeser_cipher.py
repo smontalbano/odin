@@ -3,9 +3,12 @@ def shift(key, word):
     result = ""
 
     for char in word:
-        i = alpha_numeric.index(char)
-        new_i = (i + key) % len(alpha_numeric)
-        result += alpha_numeric[new_i]        
+        if char in alpha_numeric:
+            i = alpha_numeric.index(char)
+            new_i = (i + key) % len(alpha_numeric)
+            result += alpha_numeric[new_i]      
+        else:
+            result += char  
     return result
 
 alpha_numeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
